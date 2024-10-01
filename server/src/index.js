@@ -8,7 +8,7 @@ import { ReadlineParser } from '@serialport/parser-readline'
 connectDB()
 .then(() => console.log('Connected to MongoDB Atlas'))
 
-const port = new SerialPort({ path: 'COM3', baudRate: 9600 });  
+const port = new SerialPort({ path: process.env.PORT_PATH, baudRate: Number(process.env.PORT_BAUDRATE) });  
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
 
 parser.on('data', async (data) => {
@@ -30,6 +30,7 @@ parser.on('data', async (data) => {
   //     console.error('Error saving Student:', error);
   //   }
   // }
+
 });
 
 port.on('error', (err) => {
