@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const studentSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name:{
         type:String,
         required:[true,"Name is required"]
@@ -13,10 +13,12 @@ const studentSchema = new mongoose.Schema({
         type:String,
         required:[true,"Password is required"]
     },
-    status:{
+    role:{
         type:String,
-        default:"Absent"
+        required:true,
+        default:"Student"
     },
 },{timestamps:true})
 
-export const Student = mongoose.model("Attendance",studentSchema)
+export const User = mongoose.model("User",userSchema)
+
