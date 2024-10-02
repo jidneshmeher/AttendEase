@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
         required:true,
         default:"Student"
     },
+    refreshToken:{
+        type:String,
+        default:""
+    }
 },{timestamps:true})
 
 export const User = mongoose.model("User",userSchema)
