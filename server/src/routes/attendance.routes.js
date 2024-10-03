@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getTodaysAttendance } from "../controllers/attendance.controller.js";
-// import { addAttendance } from "../controllers/attendance.controller.js";
+import { getAttendanceByDateRange, getTodaysAttendance, getTodaysAttendanceSummary } from "../controllers/attendance.controller.js";
 
-const router = Router()
+const router = Router();
 
-router.get('/today',getTodaysAttendance)
-// router.get('/add',addAttendance)
+router.get('/today', getTodaysAttendance);
+router.get('/date-range', getAttendanceByDateRange);
+router.get('/today-summary', getTodaysAttendanceSummary);
 
-export default router
+export default router;
