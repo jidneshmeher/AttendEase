@@ -136,5 +136,3 @@ export const getAttendanceByDateRange = asyncHandler(async (req, res, next) => {
 });
 
 
-
-
